@@ -12,4 +12,5 @@ setup(
     license="Apache 2.0",
     packages=setuptools.find_packages(),
     long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
 )
