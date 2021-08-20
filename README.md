@@ -25,6 +25,12 @@ asyncio.run(main())
 # 3240000
 ```
 
+## Installation
+
+```
+python -m pip install holodex
+```
+
 ## Todo
 
 - [ ] Support `/live` endpoint
