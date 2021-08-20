@@ -12,6 +12,12 @@ class HolodexHttpClient:
         if self.session:
             await self.session.close()
 
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.close()
+
     async def request(self, method: Literal["GET", "POST"], endpoint: str) -> Any:
         if not self.session:
             self.session = ClientSession()
