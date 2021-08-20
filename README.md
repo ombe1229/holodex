@@ -28,3 +28,4 @@ asyncio.run(main())
 ## Todo
 
 - [ ] Support `/live` endpoint
+- [ ] Make easy to get channel id
