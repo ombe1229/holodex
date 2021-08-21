@@ -19,16 +19,13 @@ class HolodexHttpClient:
         await self.close()
 
     async def request(
-        self,
-        method: Literal["GET", "POST"],
-        endpoint: str,
-        json: Optional[dict[str, Any]] = None,
+        self, method: Literal["GET", "POST"], endpoint: str, **kwargs: Any
     ) -> Any:
         if not self.session:
             self.session = ClientSession()
 
         async with self.session.request(
-            method, self.BASE_URL + endpoint, json=json
+            method, self.BASE_URL + endpoint, **kwargs
         ) as r:
             return await r.json()
 
