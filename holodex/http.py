@@ -22,7 +22,7 @@ class HolodexHttpClient:
         self,
         method: Literal["GET", "POST"],
         endpoint: str,
-        json: Optional[dict[str, Any]],
+        json: Optional[dict[str, Any]] = None,
     ) -> Any:
         if not self.session:
             self.session = ClientSession()
