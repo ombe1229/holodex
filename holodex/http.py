@@ -32,5 +32,5 @@ class HolodexHttpClient:
         ) as r:
             return await r.json()
 
-    async def get_channel(self, channel_id: str) -> Any:
+    async def channels(self, channel_id: str) -> Any:
         return await self.request("GET", f"/channels/{channel_id}")

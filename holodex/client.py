@@ -25,4 +25,4 @@ class HolodexClient(HolodexHttpClient):
          - Class `ChannelInfo`
 
         """
-        return ChannelInfo(await self.get_channel(channel_id))
+        return ChannelInfo(await self.channels(channel_id))
