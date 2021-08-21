@@ -33,5 +33,5 @@ python -m pip install holodex
 
 ## Todo
 
-- [ ] Support `/live` endpoint
+- [x] Support `/live` endpoint
 - [x] Make easy to get channel id
