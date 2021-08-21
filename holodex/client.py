@@ -1,5 +1,6 @@
+from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
-from typing import Optional
+from typing import Literal, Optional
 from aiohttp.client import ClientSession
 
 from holodex.http import HolodexHttpClient
@@ -15,3 +16,11 @@ class HolodexClient(HolodexHttpClient):
 
     async def autocomplete(self, keyword: str) -> AutoComplete:
         return AutoComplete(await self.search_autocomplete(keyword))
+
+    async def live_streams(
+        self,
+        org: Optional[
+            Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"]
+        ] = "All Vtubers",
+    ) -> Live:
+        return Live(await self.live(org))
