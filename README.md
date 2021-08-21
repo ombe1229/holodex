@@ -1,5 +1,7 @@
 # holodex
 
+[![PyPI version](https://badge.fury.io/py/holodex.svg)](https://badge.fury.io/py/holodex) [![PyPI downloads](https://img.shields.io/pypi/dm/holodex.svg)](https://pypi.python.org/pypi/holodex)
+
 > Holodex api wrapper
 
 ## Example
