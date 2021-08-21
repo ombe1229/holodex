@@ -18,11 +18,18 @@ class HolodexHttpClient:
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         await self.close()
 
-    async def request(self, method: Literal["GET", "POST"], endpoint: str) -> Any:
+    async def request(
+        self,
+        method: Literal["GET", "POST"],
+        endpoint: str,
+        json: Optional[dict[str, Any]],
+    ) -> Any:
         if not self.session:
             self.session = ClientSession()
 
-        async with self.session.request(method, self.BASE_URL + endpoint) as r:
+        async with self.session.request(
+            method, self.BASE_URL + endpoint, json=json
+        ) as r:
             return await r.json()
 
     async def get_channel(self, channel_id: str) -> Any:
