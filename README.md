@@ -11,10 +11,10 @@ from holodex.client import HolodexClient
 
 async def main():
     async with HolodexClient() as client:
-        gura = await client.channel_info("UCoSrY_IQQVpmIRZ9Xf-y93g")
-        print(gura.name)
-        print(gura.clip_count)
-        print(gura.subscriber_count)
+        channel = await client.channel_info("UCoSrY_IQQVpmIRZ9Xf-y93g")
+        print(channel.name)
+        print(channel.clip_count)
+        print(channel.subscriber_count)
 
 
 asyncio.run(main())
