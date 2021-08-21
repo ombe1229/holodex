@@ -31,3 +31,6 @@ class HolodexHttpClient:
 
     async def channels(self, channel_id: str) -> Any:
         return await self.request("GET", f"/channels/{channel_id}")
+
+    async def search_autocomplete(self, q: str) -> Any:
+        return await self.request("GET", f"/search/autocomplete", params={"q": q})
