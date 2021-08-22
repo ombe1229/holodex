@@ -1,6 +1,6 @@
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
-from typing import Literal, Optional
+from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
 
 from holodex.http import HolodexHttpClient
@@ -10,6 +10,10 @@ from holodex.model.channel_info import ChannelInfo
 class HolodexClient(HolodexHttpClient):
     def __init__(self, session: Optional[ClientSession] = None) -> None:
         super().__init__(session)
+
+    def __get_params(self, locals: dict[str, Any]):
+        locals.pop("self")
+        return {k: v for k, v in locals.items() if v is not None}
 
     async def channel_info(self, channel_id: str) -> ChannelInfo:
         return ChannelInfo(await self.channels(channel_id))
