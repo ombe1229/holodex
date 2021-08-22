@@ -23,8 +23,24 @@ class HolodexClient(HolodexHttpClient):
 
     async def live_streams(
         self,
+        *,
+        channel_id: Optional[str] = None,
+        id: Optional[str] = None,
+        include: Optional[list[str]] = None,
+        lang: Optional[Literal["all", "en", "ja"]] = None,
+        limit: Optional[int] = None,
+        max_upcoming_hours: Optional[int] = None,
+        mentioned_channel_id: Optional[str] = None,
+        offset: Optional[int] = None,
+        order: Optional[Literal["asc", "desc"]] = None,
         org: Optional[
             Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"]
-        ] = "All Vtubers",
+        ] = None,
+        paginated: Optional[str] = None,
+        sort: Optional[str] = None,
+        status: Optional[str] = None,
+        topic: Optional[str] = None,
+        type: Optional[str] = None
     ) -> Live:
-        return Live(await self.live(org))
+        params = self.__get_params(locals())
+        return Live(await self.live(params))
