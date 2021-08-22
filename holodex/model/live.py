@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, Literal
 
 
 class Channel:
@@ -18,7 +18,7 @@ class Channel:
         return self._data["org"]
 
     @property
-    def type(self) -> str:
+    def type(self) -> Literal["stream", "clip"]:
         return self._data["type"]
 
     @property
@@ -63,7 +63,7 @@ class LiveInfo:
         return self._response["duration"]
 
     @property
-    def status(self) -> str:
+    def status(self) -> Literal["new", "upcoming", "live", "past", "missing"]:
         return self._response["status"]
 
     @property
