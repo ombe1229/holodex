@@ -41,10 +41,8 @@ class ChannelInfo:
     def suborg(self) -> str:
         return self._response["suborg"]
 
-    """
-    @property
-    def lang(self) -> Optional[]
-    """
+    # @property
+    # def lang(self) -> Optional[]
 
     @property
     def published_at(self) -> str:
