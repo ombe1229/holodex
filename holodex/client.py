@@ -1,3 +1,4 @@
+from holodex.model.video import VideoInfo
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
 from typing import Any, Literal, Optional
@@ -44,3 +45,7 @@ class HolodexClient(HolodexHttpClient):
     ) -> Live:
         params = self.__get_params(locals())
         return Live(await self.get_live(params))
+
+    async def video(self, video_id: str) -> VideoInfo:
+        params = {"c": 1, "lang": "all"}
+        return VideoInfo(await self.get_video(video_id, params))
