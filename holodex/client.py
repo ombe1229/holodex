@@ -4,7 +4,7 @@ from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
 
 from holodex.http import HolodexHttpClient
-from holodex.model.channel_info import ChannelInfo
+from holodex.model.channel import ChannelInfo
 
 
 class HolodexClient(HolodexHttpClient):
