@@ -35,8 +35,5 @@ class HolodexHttpClient:
     async def search_autocomplete(self, q: str) -> Any:
         return await self.request("GET", f"/search/autocomplete", params={"q": q})
 
-    async def live(
-        self,
-        org: Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"],
-    ) -> Any:
-        return await self.request("GET", f"/live", params={"org": org})
+    async def live(self, params: dict[str, Any]) -> Any:
+        return await self.request("GET", f"/live", params=params)
