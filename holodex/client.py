@@ -15,11 +15,11 @@ class HolodexClient(HolodexHttpClient):
         locals.pop("self")
         return {k: v for k, v in locals.items() if v is not None}
 
-    async def channel_info(self, channel_id: str) -> ChannelInfo:
-        return ChannelInfo(await self.channels(channel_id))
+    async def channel(self, channel_id: str) -> ChannelInfo:
+        return ChannelInfo(await self.get_channels(channel_id))
 
     async def autocomplete(self, keyword: str) -> AutoComplete:
-        return AutoComplete(await self.search_autocomplete(keyword))
+        return AutoComplete(await self.get_autocomplete(keyword))
 
     async def live_streams(
         self,
@@ -43,4 +43,4 @@ class HolodexClient(HolodexHttpClient):
         type: Optional[str] = None
     ) -> Live:
         params = self.__get_params(locals())
-        return Live(await self.live(params))
+        return Live(await self.get_live(params))
