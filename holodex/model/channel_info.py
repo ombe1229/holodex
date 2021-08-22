@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Literal, Optional
 
 
 class ChannelInfo:
@@ -14,7 +14,7 @@ class ChannelInfo:
         return self._response["name"]
 
     @property
-    def english_name(self) -> str:
+    def english_name(self) -> Optional[str]:
         return self._response["english_name"]
 
     @property
@@ -22,7 +22,7 @@ class ChannelInfo:
         return self._response["description"]
 
     @property
-    def photo(self) -> str:
+    def photo(self) -> Optional[str]:
         return self._response["photo"]
 
     @property
@@ -30,34 +30,35 @@ class ChannelInfo:
         return self._response["thumbnail"]
 
     @property
-    def banner(self) -> str:
+    def banner(self) -> Optional[str]:
         return self._response["banner"]
 
     @property
-    def org(self) -> str:
+    def org(self) -> Optional[str]:
         return self._response["org"]
 
     @property
-    def suborg(self) -> str:
+    def suborg(self) -> Optional[str]:
         return self._response["suborg"]
 
-    # @property
-    # def lang(self) -> Optional[]
+    @property
+    def lang(self) -> Optional[str]:
+        return self._response["lang"]
 
     @property
     def published_at(self) -> str:
         return self._response["published_at"]
 
     @property
-    def view_count(self) -> str:
+    def view_count(self) -> Optional[str]:
         return self._response["view_count"]
 
     @property
-    def video_count(self) -> str:
+    def video_count(self) -> Optional[str]:
         return self._response["video_count"]
 
     @property
-    def subscriber_count(self) -> str:
+    def subscriber_count(self) -> Optional[str]:
         return self._response["subscriber_count"]
 
     @property
@@ -77,15 +78,15 @@ class ChannelInfo:
         return self._response["crawled_at"]
 
     @property
-    def type(self) -> str:
+    def type(self) -> Literal["vtuber", "subber"]:
         return self._response["type"]
 
     @property
-    def clip_count(self) -> int:
+    def clip_count(self) -> Optional[int]:
         return self._response["clip_count"]
 
     @property
-    def twitter(self) -> str:
+    def twitter(self) -> Optional[str]:
         return self._response["twitter"]
 
     @property
