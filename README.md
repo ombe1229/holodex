@@ -38,4 +38,4 @@ python -m pip install holodex
 - [x] Support `/live` endpoint
 - [x] Make easy to get channel id
 - [ ] Support `/videos` endpoint
-- [ ] Travis
+- [x] Travis
