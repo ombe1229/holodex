@@ -1,6 +1,6 @@
 # holodex
 
-[![PyPI version](https://badge.fury.io/py/holodex.svg)](https://badge.fury.io/py/holodex) [![PyPI downloads](https://img.shields.io/pypi/dm/holodex.svg)](https://pypi.python.org/pypi/holodex) [![CodeFactor](https://www.codefactor.io/repository/github/ombe1229/holodex/badge)](https://www.codefactor.io/repository/github/ombe1229/holodex)
+[![PyPI version](https://badge.fury.io/py/holodex.svg)](https://badge.fury.io/py/holodex) [![PyPI downloads](https://img.shields.io/pypi/dm/holodex.svg)](https://pypi.python.org/pypi/holodex) [![CodeFactor](https://www.codefactor.io/repository/github/ombe1229/holodex/badge)](https://www.codefactor.io/repository/github/ombe1229/holodex) [![Build Status](https://app.travis-ci.com/ombe1229/holodex.svg?branch=master)](https://app.travis-ci.com/ombe1229/holodex)
 
 > Holodex api wrapper
 
