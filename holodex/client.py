@@ -5,7 +5,7 @@ from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
 
 from holodex.http import HolodexHttpClient
-from holodex.model.channel import ChannelInfo
+from holodex.model.channel import Channel
 
 
 class HolodexClient(HolodexHttpClient):
@@ -16,8 +16,8 @@ class HolodexClient(HolodexHttpClient):
         keys.pop("self")
         return {k: v for k, v in keys.items() if v is not None}
 
-    async def channel(self, channel_id: str) -> ChannelInfo:
-        return ChannelInfo(await self.get_channels(channel_id))
+    async def channel(self, channel_id: str) -> Channel:
+        return Channel(await self.get_channels(channel_id))
 
     async def autocomplete(self, keyword: str) -> AutoComplete:
         return AutoComplete(await self.get_autocomplete(keyword))
