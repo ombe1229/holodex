@@ -13,18 +13,21 @@ from holodex.client import HolodexClient
 
 async def main():
     async with HolodexClient() as client:
-        channel = await client.channel_info("UCoSrY_IQQVpmIRZ9Xf-y93g")
+        search = await client.autocomplete("iofi")
+        channel_id = search.contents[0].value
+        print(channel_id)
+
+        channel = await client.channel(channel_id)
         print(channel.name)
-        print(channel.clip_count)
         print(channel.subscriber_count)
 
 
 asyncio.run(main())
 
 
-# Gawr Gura Ch. hololive-EN
-# 6943
-# 3240000
+# UCAoy6rzhSf4ydcYjJw3WoVg
+# Airani Iofifteen Channel hololive-ID
+# 446000
 ```
 
 ## Installation
