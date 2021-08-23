@@ -1,3 +1,4 @@
+from holodex.model.channel_video import ChannelVideo
 from holodex.model.video import Video
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
@@ -53,3 +54,18 @@ class HolodexClient(HolodexHttpClient):
     async def video(self, video_id: str) -> Video:
         params = {"c": 1, "lang": "all"}
         return Video(await self.get_video(video_id, params))
+
+    async def videos_from_channel(
+        self,
+        channel_id: str,
+        type: Literal["clips", "videos", "collabs"],
+        include: Optional[list[str]] = None,
+        lang: Optional[Literal["all", "en", "ja"]] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        paginated: Optional[str] = None,
+    ) -> ChannelVideo:
+        params = self.__get_params(locals(), ["channel_id", "type"])
+        return ChannelVideo(
+            await self.get_videos_from_channel(channel_id, type, params)
+        )
