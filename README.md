@@ -40,10 +40,3 @@ asyncio.run(main())
 ```
 python -m pip install holodex
 ```
-
-## Todo
-
-- [x] Support `/live` endpoint
-- [x] Make easy to get channel id
-- [ ] Support `/videos` endpoint
-- [x] Travis
