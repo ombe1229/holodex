@@ -1,112 +1,5 @@
 from typing import Any, Literal
-
-
-class ClipChannel:
-    def __init__(self, response: Any) -> None:
-        self._response = response
-
-    @property
-    def id(self) -> str:
-        return self._response["id"]
-
-    @property
-    def name(self) -> str:
-        return self._response["name"]
-
-    @property
-    def photo(self) -> str:
-        return self._response["photo"]
-
-
-class ReferChannel:
-    def __init__(self, response: Any) -> None:
-        self._response = response
-
-    @property
-    def id(self) -> str:
-        return self._response["id"]
-
-    @property
-    def org(self) -> Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"]:
-        return self._response["org"]
-
-    @property
-    def name(self) -> str:
-        return self._response["name"]
-
-    @property
-    def photo(self) -> str:
-        return self._response["photo"]
-
-    @property
-    def english_name(self) -> str:
-        return self._response["english_name"]
-
-
-class RecommandationChannel:
-    def __init__(self, response: Any) -> None:
-        self._response = response
-
-    @property
-    def id(self) -> str:
-        return self._response["id"]
-
-    @property
-    def name(self) -> str:
-        return self._response["name"]
-
-    @property
-    def type(self) -> Literal["vtuber", "subber"]:
-        return self._response["type"]
-
-    @property
-    def photo(self) -> str:
-        return self._response["photo"]
-
-
-class Channel:
-    def __init__(self, response: Any) -> None:
-        self._response = response
-
-    @property
-    def id(self) -> str:
-        return self._response["id"]
-
-    @property
-    def name(self) -> str:
-        return self._response["name"]
-
-    @property
-    def org(self) -> Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"]:
-        return self._response["org"]
-
-    @property
-    def type(self) -> Literal["vtuber", "subber"]:
-        return self._response["type"]
-
-    @property
-    def photo(self) -> str:
-        return self._response["photo"]
-
-    @property
-    def english_name(self) -> str:
-        return self._response["english_name"]
-
-    @property
-    def view_count(self) -> str:
-        return self._response["view_count"]
-
-    @property
-    def video_count(self) -> str:
-        return self._response["video_count"]
-
-    @property
-    def subscriber_count(self) -> str:
-        return self._response["subscriber_count"]
-
-    @property
-    def clip_count(self) -> int:
-        return self._response["clip_count"]
+from holodex.model.channel import Channel
 
 
 class Clip:
@@ -138,8 +31,8 @@ class Clip:
         return self._response["status"]
 
     @property
-    def channel(self) -> ClipChannel:
-        return ClipChannel(self._response["channel"])
+    def channel(self) -> Channel:
+        return Channel(self._response["channel"])
 
 
 class Refer:
@@ -163,8 +56,8 @@ class Refer:
         return self._response["status"]
 
     @property
-    def channel(self) -> ReferChannel:
-        return ReferChannel(self._response["channel"])
+    def channel(self) -> Channel:
+        return Channel(self._response["channel"])
 
     @property
     def duration(self) -> int:
@@ -221,8 +114,8 @@ class Recommendation:
         return self._response["status"]
 
     @property
-    def channel(self) -> RecommandationChannel:
-        return RecommandationChannel(self._response["channel"])
+    def channel(self) -> Channel:
+        return Channel(self._response["channel"])
 
 
 class VideoInfo:
