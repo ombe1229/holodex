@@ -12,8 +12,12 @@ class HolodexClient(HolodexHttpClient):
     def __init__(self, session: Optional[ClientSession] = None) -> None:
         super().__init__(session)
 
-    def __get_params(self, keys: dict[str, Any]):
+    def __get_params(
+        self, keys: dict[str, Any], exclude: Optional[list[str]] = None
+    ) -> dict[str, Any]:
         keys.pop("self")
+        for key in exclude:
+            keys.pop(key)
         return {k: v for k, v in keys.items() if v is not None}
 
     async def channel(self, channel_id: str) -> Channel:
