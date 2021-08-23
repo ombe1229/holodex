@@ -1,33 +1,5 @@
 from typing import Any, Dict, Literal
-
-
-class Channel:
-    def __init__(self, data: Dict[str, Any]) -> None:
-        self._data = data
-
-    @property
-    def id(self) -> str:
-        return self._data["id"]
-
-    @property
-    def name(self) -> str:
-        return self._data["name"]
-
-    @property
-    def org(self) -> str:
-        return self._data["org"]
-
-    @property
-    def type(self) -> Literal["stream", "clip"]:
-        return self._data["type"]
-
-    @property
-    def photo(self) -> str:
-        return self._data["photo"]
-
-    @property
-    def english_name(self) -> str:
-        return self._data["english_name"]
+from holodex.model.channel import Channel
 
 
 class LiveInfo:
