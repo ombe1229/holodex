@@ -118,7 +118,7 @@ class Recommendation:
         return Channel(self._response["channel"])
 
 
-class VideoInfo:
+class Video:
     def __init__(self, response: Any) -> None:
         self._response = response
 
