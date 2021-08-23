@@ -21,6 +21,9 @@ async def main():
         print(channel.name)
         print(channel.subscriber_count)
 
+        videos = await client.videos_from_channel(channel_id, "videos")
+        print(videos.contents[0].title)
+
 
 asyncio.run(main())
 
@@ -28,6 +31,8 @@ asyncio.run(main())
 # UCAoy6rzhSf4ydcYjJw3WoVg
 # Airani Iofifteen Channel hololive-ID
 # 446000
+# 【 Senin Produktif 】Selamat Hari Senin! May RNG God Bless Our Gacha【 iofi / イオフィ 】
+
 ```
 
 ## Installation
