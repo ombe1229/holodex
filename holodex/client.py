@@ -12,9 +12,9 @@ class HolodexClient(HolodexHttpClient):
     def __init__(self, session: Optional[ClientSession] = None) -> None:
         super().__init__(session)
 
-    def __get_params(self, locals: dict[str, Any]):
-        locals.pop("self")
-        return {k: v for k, v in locals.items() if v is not None}
+    def __get_params(self, keys: dict[str, Any]):
+        keys.pop("self")
+        return {k: v for k, v in keys.items() if v is not None}
 
     async def channel(self, channel_id: str) -> ChannelInfo:
         return ChannelInfo(await self.get_channels(channel_id))
