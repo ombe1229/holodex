@@ -29,13 +29,13 @@ class HolodexHttpClient:
         ) as r:
             return await r.json()
 
-    async def get_channels(self, channel_id: str) -> Any:
+    async def get_channel(self, channel_id: str) -> Any:
         return await self.request("GET", f"/channels/{channel_id}")
 
     async def get_autocomplete(self, q: str) -> Any:
         return await self.request("GET", f"/search/autocomplete", params={"q": q})
 
-    async def get_live(self, params: dict[str, Any]) -> Any:
+    async def get_live_streams(self, params: dict[str, Any]) -> Any:
         return await self.request("GET", f"/live", params=params)
 
     async def get_video(self, video_id: str, params: dict[str, Any]) -> Any:

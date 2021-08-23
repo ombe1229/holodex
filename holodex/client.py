@@ -17,7 +17,7 @@ class HolodexClient(HolodexHttpClient):
         return {k: v for k, v in keys.items() if v is not None}
 
     async def channel(self, channel_id: str) -> Channel:
-        return Channel(await self.get_channels(channel_id))
+        return Channel(await self.get_channel(channel_id))
 
     async def autocomplete(self, keyword: str) -> AutoComplete:
         return AutoComplete(await self.get_autocomplete(keyword))
@@ -44,7 +44,7 @@ class HolodexClient(HolodexHttpClient):
         type: Optional[str] = None
     ) -> Live:
         params = self.__get_params(locals())
-        return Live(await self.get_live(params))
+        return Live(await self.get_live_streams(params))
 
     async def video(self, video_id: str) -> Video:
         params = {"c": 1, "lang": "all"}
