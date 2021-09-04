@@ -76,7 +76,7 @@ class HolodexClient(HolodexHttpClient):
         self,
         offset: int,
         limit: int,
-        sort: Literal["oldest", "newest"],
+        sort: Literal["oldest", "newest"] = "newest",
         lang: Optional[Literal["all", "en", "ja"]] = None,
         target: Optional[Literal["clip", "stream"]] = None,
         conditions: Optional[list[Condition]] = None,
