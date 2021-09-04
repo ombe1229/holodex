@@ -83,7 +83,6 @@ class HolodexClient(HolodexHttpClient):
         topic: Optional[list[str]] = None,
         vch: Optional[list[str]] = None,
         org: Optional[list[str]] = None,
-        paginated: bool = False,
     ) -> SearchVideo:
         params = self.__get_params(locals())
         return SearchVideo(await self.get_search_video(params))

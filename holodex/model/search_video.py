@@ -81,9 +81,5 @@ class SearchVideo:
         self._response = response
 
     @property
-    def total(self) -> int:
-        return self._response["total"]
-
-    @property
     def contents(self) -> list[SearchVideoInfo]:
-        return [SearchVideoInfo(item) for item in self._response["items"]]
+        return [SearchVideoInfo(item) for item in self._response]
