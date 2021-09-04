@@ -84,5 +84,5 @@ class HolodexClient(HolodexHttpClient):
         vch: Optional[list[str]] = None,
         org: Optional[list[str]] = None,
     ) -> SearchVideo:
-        params = self.__get_params(locals())
+        params = self.__get_params(locals(), ["offset", "limit", "sort"])
         return SearchVideo(await self.get_search_video(params))

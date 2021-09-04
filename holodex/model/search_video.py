@@ -81,5 +81,5 @@ class SearchVideo:
         self._response = response
 
     @property
-    def contents(self) -> list[SearchVideoInfo]:
+    def items(self) -> list[SearchVideoInfo]:
         return [SearchVideoInfo(item) for item in self._response]
