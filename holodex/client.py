@@ -17,8 +17,9 @@ class HolodexClient(HolodexHttpClient):
         self, keys: dict[str, Any], exclude: Optional[list[str]] = None
     ) -> dict[str, Any]:
         keys.pop("self")
-        for key in exclude:
-            keys.pop(key)
+        if exclude:
+            for key in exclude:
+                keys.pop(key)
         return {k: v for k, v in keys.items() if v is not None}
 
     async def channel(self, channel_id: str) -> Channel:
