@@ -2,6 +2,7 @@ from holodex.model.channel_video import ChannelVideo
 from holodex.model.video import Video
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
+from holodex.model.search_video import SearchVideo, Condition
 from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
 
@@ -70,3 +71,19 @@ class HolodexClient(HolodexHttpClient):
         return ChannelVideo(
             await self.get_videos_from_channel(channel_id, type, params)
         )
+
+    async def search_video(
+        self,
+        offset: int,
+        limit: int,
+        sort: Literal["oldest", "newest"],
+        lang: Optional[Literal["all", "en", "ja"]] = None,
+        target: Optional[Literal["clip", "stream"]] = None,
+        conditions: Optional[list[Condition]] = None,
+        topic: Optional[list[str]] = None,
+        vch: Optional[list[str]] = None,
+        org: Optional[list[str]] = None,
+        paginated: bool = False,
+    ) -> SearchVideo:
+        params = self.__get_params(locals())
+        return SearchVideo(await self.get_search_video(params))
