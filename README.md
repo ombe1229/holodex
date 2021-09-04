@@ -3,6 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/holodex.svg)](https://badge.fury.io/py/holodex)
 [![PyPI downloads](https://img.shields.io/pypi/dm/holodex.svg)](https://pypi.python.org/pypi/holodex)
 [![CodeFactor](https://www.codefactor.io/repository/github/ombe1229/holodex/badge)](https://www.codefactor.io/repository/github/ombe1229/holodex)
+[![Github release](https://github.com/ombe1229/holodex/actions/workflows/ci.yml/badge.svg)](https://github.com/ombe1229/holodex/actions/workflows/ci.yml)
 
 > Holodex api wrapper
 
