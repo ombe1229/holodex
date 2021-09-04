@@ -9,11 +9,11 @@ class HolodexHttpClient:
     def __init__(self, session: Optional[ClientSession] = None) -> None:
         self.session = session
 
-    async def close(self):
+    async def close(self) -> None:
         if self.session:
             await self.session.close()
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> "HolodexHttpClient":
         return self
 
     async def __aexit__(
@@ -21,7 +21,7 @@ class HolodexHttpClient:
         exc_type: Optional[type[BaseException]],
         exc_val: Optional[BaseException],
         exc_tb: Optional[TracebackType],
-    ):
+    ) -> None:
         await self.close()
 
     async def request(
