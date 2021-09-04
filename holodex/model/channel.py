@@ -23,7 +23,7 @@ class Channel:
 
     @property
     def photo(self) -> Optional[str]:
-        return self._response["photo"]
+        return self._response.get("photo")
 
     @property
     def thumbnail(self) -> Optional[str]:

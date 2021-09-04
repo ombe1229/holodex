@@ -20,7 +20,7 @@ class ChannelVideoInfo:
 
     @property
     def topic_id(self) -> Optional[str]:
-        return self._response["topic_id"]
+        return self._response.get("topic_id")
 
     @property
     def published_at(self) -> str:
