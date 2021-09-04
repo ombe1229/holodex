@@ -4,7 +4,7 @@ from types import TracebackType
 
 
 class HolodexHttpClient:
-    BASE_URL = "https://holodex.net/api/v2/"
+    BASE_URL = "https://holodex.net/api/v2"
 
     def __init__(self, session: Optional[ClientSession] = None) -> None:
         self.session = session
