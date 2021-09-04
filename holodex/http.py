@@ -1,5 +1,6 @@
 from aiohttp import ClientSession
 from typing import Any, Literal, Optional
+from types import TracebackType
 
 
 class HolodexHttpClient:
@@ -15,7 +16,12 @@ class HolodexHttpClient:
     async def __aenter__(self):
         return self
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def __aexit__(
+        self,
+        exc_type: Optional[type[BaseException]],
+        exc_val: Optional[BaseException],
+        exc_tb: Optional[TracebackType],
+    ):
         await self.close()
 
     async def request(
