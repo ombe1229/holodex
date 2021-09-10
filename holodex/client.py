@@ -2,7 +2,7 @@ from holodex.model.channel_video import ChannelVideo
 from holodex.model.video import Video
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
-from holodex.model.search_video import SearchVideo, Condition
+from holodex.model.search_video import SearchVideo
 from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
 
@@ -79,7 +79,7 @@ class HolodexClient(HolodexHttpClient):
         sort: Literal["oldest", "newest"] = "newest",
         lang: Optional[Literal["all", "en", "ja"]] = None,
         target: Optional[Literal["clip", "stream"]] = None,
-        conditions: Optional[list[Condition]] = None,
+        conditions: Optional[list[dict[Literal["text"], str]]] = None,
         topic: Optional[list[str]] = None,
         vch: Optional[list[str]] = None,
         org: Optional[list[str]] = None,

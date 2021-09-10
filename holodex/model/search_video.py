@@ -67,15 +67,6 @@ class SearchVideoInfo:
         return Channel(self._content["channel"])
 
 
-class Condition:
-    def __init__(self, text: Any) -> None:
-        self._text = text
-
-    @property
-    def text(self) -> str:
-        return self._text["text"]
-
-
 class SearchVideo:
     def __init__(self, response: Any) -> None:
         self._response = response
