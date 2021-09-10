@@ -1,4 +1,4 @@
-from typing import Any, Literal
+from typing import Any, Literal, Optional
 from holodex.model.channel import Channel
 
 
@@ -155,19 +155,23 @@ class Video:
         return self._response["status"]
 
     @property
-    def start_scheduled(self) -> str:
+    def start_scheduled(self) -> Optional[str]:
         return self._response["start_scheduled"]
 
     @property
-    def start_actual(self) -> str:
+    def start_actual(self) -> Optional[str]:
         return self._response["start_actual"]
 
     @property
-    def end_actual(self) -> str:
+    def end_actual(self) -> Optional[str]:
         return self._response["end_actual"]
 
     @property
-    def description(self) -> str:
+    def live_viewers(self) -> Optional[int]:
+        return self._response["live_viewers"]
+
+    @property
+    def description(self) -> Optional[str]:
         return self._response["description"]
 
     @property

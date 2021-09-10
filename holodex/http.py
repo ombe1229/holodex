@@ -56,3 +56,6 @@ class HolodexHttpClient:
         return await self.request(
             "GET", f"/channels/{channel_id}/{type}", params=params
         )
+
+    async def get_search_video(self, params: dict[str, Any]) -> Any:
+        return await self.request("POST", "/search/videoSearch", params=params)
