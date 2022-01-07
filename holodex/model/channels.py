@@ -9,6 +9,9 @@ class LiteChannel:
     def __init__(self, response: Any) -> None:
         self._response: Any = response
 
+    def __repr__(self):
+        return f"LiteChannel(\"{self.id}\", \"{self.name}\")"
+
     @property
     def id(self) -> str:
         return self._response.get("id")
@@ -24,6 +27,14 @@ class LiteChannel:
     @property
     def type(self) -> Union[Literal["vtuber"], str]:
         return self._response.get("type")
+
+    @property
+    def org(self):
+        return self._response.get("org")
+
+    @property
+    def suborg(self):
+        return self._response.get("suborg")
 
     @property
     def group(self) -> str:
@@ -62,6 +73,9 @@ class Channels:
             self._response = [LiteChannel(channel) for channel in response]
         else:
             self._response = response
+    
+    def __repr__(self):
+        return f"Channels({len(self)})"
 
     def __getitem__(self, index: Union[slice, int]) -> Union[LiteChannel, Any]:
         return self._response.__getitem__(index)

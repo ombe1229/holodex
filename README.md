@@ -27,6 +27,13 @@ async def main():
         videos = await client.videos_from_channel(channel_id, "videos")
         print(videos.contents[0].title)
 
+        channels = await client.channels(limit=100)
+
+        first = channels[0]
+
+        print(first.name)
+        print(first.subscriber_count)
+
 
 asyncio.run(main())
 

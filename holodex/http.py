@@ -38,23 +38,8 @@ class HolodexHttpClient:
     async def get_channel(self, channel_id: str) -> Any:
         return await self.request("GET", f"/channels/{channel_id}")
 
-    # Examples: https://holodex.net/api/v2/channels?limit=100&offset=100&type=vtuber&org=All%20Vtubers&sort=subscriber_count&order=desc
-    async def get_channels(self, **params: dict[str, Any]) -> Any:
-        return await self.request("GET", f"/channels", params={'limit': 0, **params})
-
-        # TEST CODE
-        # 
-        # import asyncio
-        # from holodex.client import HolodexClient
-
-
-        # async def main():
-        #     async with HolodexClient() as client:
-        #         results = await client.get_channels(limit=100, type='vtuber', offset=100, sort_by="subscriber_count")
-        #         print(results)
-
-
-        # asyncio.run(main())
+    async def get_channels(self, **params: Any) -> Any:
+        return await self.request("GET", f"/channels", params={'limit': 100, 'offset': 100, **params})
 
     async def get_autocomplete(self, q: str) -> Any:
         return await self.request("GET", f"/search/autocomplete", params={"q": q})
