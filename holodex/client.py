@@ -1,4 +1,5 @@
 from holodex.model.channel_video import ChannelVideo
+from holodex.model.channels import Channels
 from holodex.model.video import Video
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
@@ -25,6 +26,20 @@ class HolodexClient(HolodexHttpClient):
 
     async def channel(self, channel_id: str) -> Channel:
         return Channel(await self.get_channel(channel_id))
+
+    async def channels(self,*,
+        limit: Optional[int]=None,
+        offset: Optional[int]=None,
+        type: Optional[Literal['vtuber']]=None,
+        order: Optional[Literal["asc", "desc"]] = None,
+        org: Optional[
+            Literal["All Vtubers", "Hololive", "Nijisanji", "Independents"]
+        ] = None,
+        sort: Optional[str]=None
+        ) -> Channels:
+        params = self.__get_params(locals())
+        return Channels(await self.get_channels(**params))
+
 
     async def autocomplete(self, keyword: str) -> AutoComplete:
         return AutoComplete(await self.get_autocomplete(keyword))
