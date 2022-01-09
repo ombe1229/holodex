@@ -1,16 +1,15 @@
-
 from typing import Any, Union
 from typing_extensions import Literal
 
 
 class LiteChannel:
     _response: Any
-    
+
     def __init__(self, response: Any) -> None:
         self._response: Any = response
 
     def __repr__(self):
-        return f"LiteChannel(\"{self.id}\", \"{self.name}\")"
+        return f'LiteChannel("{self.id}", "{self.name}")'
 
     @property
     def id(self) -> str:
@@ -65,20 +64,20 @@ class LiteChannel:
         return self._response.get("top_topics")
 
 
-
 class Channels:
     _response: list[Any]
+
     def __init__(self, response: list[Any]) -> None:
         if type(response) == list:
             self._response = [LiteChannel(channel) for channel in response]
         else:
             self._response = response
-    
+
     def __repr__(self):
         return f"Channels({len(self)})"
 
     def __getitem__(self, index: Union[slice, int]) -> Union[LiteChannel, Any]:
         return self._response.__getitem__(index)
-    
+
     def __len__(self):
         return len(self._response)
