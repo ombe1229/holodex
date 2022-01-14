@@ -6,8 +6,11 @@ from types import TracebackType
 class HolodexHttpClient:
     BASE_URL = "https://holodex.net/api/v2"
 
-    def __init__(self, session: Optional[ClientSession] = None) -> None:
+    def __init__(
+        self, key: Optional[str] = None, session: Optional[ClientSession] = None
+    ) -> None:
         self.session = session
+        self.key = key
 
     async def close(self) -> None:
         if self.session:
@@ -24,14 +27,27 @@ class HolodexHttpClient:
     ) -> None:
         await self.close()
 
+    @property
+    def headers(self) -> dict[str, Any]:
+        headers: dict[str, Any] = {}
+        if self.key:
+            headers["X-APIKEY"] = self.key
+        return headers
+
     async def request(
-        self, method: Literal["GET", "POST"], endpoint: str, **kwargs: Any
+        self,
+        method: Literal["GET", "POST"],
+        endpoint: str,
+        **kwargs: Any,
     ) -> Any:
         if not self.session:
             self.session = ClientSession()
 
         async with self.session.request(
-            method, self.BASE_URL + endpoint, **kwargs
+            method,
+            self.BASE_URL + endpoint,
+            headers=self.headers,
+            **kwargs,
         ) as r:
             return await r.json()
 
