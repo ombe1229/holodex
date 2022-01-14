@@ -12,8 +12,10 @@ from holodex.model.channel import Channel
 
 
 class HolodexClient(HolodexHttpClient):
-    def __init__(self, session: Optional[ClientSession] = None) -> None:
-        super().__init__(session)
+    def __init__(
+        self, key: Optional[str] = None, session: Optional[ClientSession] = None
+    ) -> None:
+        super().__init__(key, session)
 
     def __get_params(
         self, keys: dict[str, Any], exclude: Optional[list[str]] = None
