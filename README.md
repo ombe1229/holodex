@@ -29,19 +29,21 @@ async def main():
 
         channels = await client.channels(limit=100)
 
-        first = channels[0]
-
-        print(first.name)
-        print(first.subscriber_count)
+        print(channels[0].name)
+        print(channels[0].subscriber_count)
 
 
 asyncio.run(main())
 
 
-# UCAoy6rzhSf4ydcYjJw3WoVg
-# Airani Iofifteen Channel hololive-ID
-# 446000
-# 【 Senin Produktif 】Selamat Hari Senin! May RNG God Bless Our Gacha【 iofi / イオフィ 】
+"""
+UCAoy6rzhSf4ydcYjJw3WoVg
+Airani Iofifteen Channel hololive-ID
+508000
+Freetalk dan Terima Kasih Superchat! + Risu OG Song React?!
+Nanashi Mumei Ch. hololive-EN
+528000
+"""
 
 ```
 
