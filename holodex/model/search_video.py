@@ -55,8 +55,8 @@ class SearchVideoInfo:
         return self._content["description"]
 
     @property
-    def songcount(self) -> int:
-        return self._content["songcount"]
+    def songcount(self) -> Optional[int]:
+        return self._content.get("songcount")
 
     @property
     def channel_id(self) -> str:
