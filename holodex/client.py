@@ -3,6 +3,7 @@ from holodex.model.channels import Channels
 from holodex.model.video import Video
 from holodex.model.live import Live
 from holodex.model.autocomplete import AutoComplete
+from holodex.model.search_comment import SearchComment
 from holodex.model.search_video import SearchVideo
 from typing import Any, Literal, Optional
 from aiohttp.client import ClientSession
@@ -104,3 +105,19 @@ class HolodexClient(HolodexHttpClient):
     ) -> SearchVideo:
         params = self.__get_params(locals(), ["offset", "limit", "sort"])
         return SearchVideo(await self.get_search_video(params))
+
+    async def search_comment(
+        self,
+        comment: str,
+        offset: int,
+        limit: int,
+        sort: Literal["oldest", "newest"] = "newest",
+        lang: Optional[list[str]] = None,
+        target: Optional[list[Literal["clip", "stream"]]] = None,
+        topic: Optional[list[str]] = None,
+        vch: Optional[list[str]] = None,
+        org: Optional[list[str]] = None,
+        paginated: Optional[str] = None,
+    ) -> SearchComment:
+        params = self.__get_params(locals(), ["comment", "offset", "limit", "sort"])
+        return SearchComment(await self.get_search_comment(params))
