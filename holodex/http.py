@@ -80,3 +80,6 @@ class HolodexHttpClient:
 
     async def get_search_video(self, params: dict[str, Any]) -> Any:
         return await self.request("POST", "/search/videoSearch", params=params)
+
+    async def get_search_comment(self, params: dict[str, Any]) -> Any:
+        return await self.request("POST", "/search/commentSearch", params=params)
