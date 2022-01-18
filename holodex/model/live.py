@@ -1,4 +1,4 @@
-from typing import Any, Dict, Literal
+from typing import Any, Dict, Literal, Optional
 from holodex.model.channel import Channel
 
 
@@ -47,8 +47,8 @@ class LiveInfo:
         return self._response["start_scheduled"]
 
     @property
-    def start_actual(self) -> str:
-        return self._response["start_actual"]
+    def start_actual(self) -> Optional[str]:
+        return self._response.get("start_actual")
 
     @property
     def live_viewers(self) -> int:
