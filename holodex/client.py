@@ -1,15 +1,17 @@
-from holodex.model.channel_video import ChannelVideo
-from holodex.model.channels import Channels
-from holodex.model.video import Video
-from holodex.model.live import Live
-from holodex.model.autocomplete import AutoComplete
-from holodex.model.search_comment import SearchComment
-from holodex.model.search_video import SearchVideo
-from typing import Any, Literal, Optional
+from typing import Any, Optional
+
 from aiohttp.client import ClientSession
+from typing_extensions import Literal
 
 from holodex.http import HolodexHttpClient
+from holodex.model.autocomplete import AutoComplete
 from holodex.model.channel import Channel
+from holodex.model.channel_video import ChannelVideo
+from holodex.model.channels import Channels
+from holodex.model.live import Live
+from holodex.model.search_comment import SearchComment
+from holodex.model.search_video import SearchVideo
+from holodex.model.video import Video
 
 
 class HolodexClient(HolodexHttpClient):
