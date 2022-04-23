@@ -19,8 +19,8 @@ class LiveInfo:
         return self._response["type"]
 
     @property
-    def topic_id(self) -> str:
-        return self._response["topic_id"]
+    def topic_id(self) -> Optional[str]:
+        return self._response.get("topic_id")
 
     @property
     def published_at(self) -> str:
