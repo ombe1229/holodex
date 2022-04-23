@@ -1,6 +1,8 @@
-from aiohttp import ClientSession
-from typing import Any, Literal, Optional
 from types import TracebackType
+from typing import Any, Optional
+
+from aiohttp import ClientSession
+from typing_extensions import Literal
 
 
 class HolodexHttpClient:

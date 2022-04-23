@@ -1,4 +1,7 @@
-from typing import Any, Literal, Optional
+from typing import Any, Optional
+
+from typing_extensions import Literal
+
 from holodex.model.channel import Channel
 
 

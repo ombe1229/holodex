@@ -1,4 +1,5 @@
 from typing import Any
+
 from holodex.model.search_info import SearchInfo
 
 
