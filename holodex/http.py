@@ -1,5 +1,5 @@
 from types import TracebackType
-from typing import Any, Optional
+from typing import Any, Optional, Type
 
 from aiohttp import ClientSession
 from typing_extensions import Literal
@@ -23,7 +23,7 @@ class HolodexHttpClient:
 
     async def __aexit__(
         self,
-        exc_type: Optional[type[BaseException]],
+        exc_type: Optional[Type[BaseException]],
         exc_val: Optional[BaseException],
         exc_tb: Optional[TracebackType],
     ) -> None:
